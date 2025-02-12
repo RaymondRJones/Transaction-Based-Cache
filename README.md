@@ -13,6 +13,11 @@ This project provides a transaction-safe cache API using Django and SQLite. It a
 
 Note: If the project needs to support non-hashable keys, they must be converted to a string before storage.
 
+## Video Explanation
+
+[Video Link](https://www.loom.com/share/your-video-link)
+
+
 ## Starting Project
 1. Clone the Repository
 
@@ -24,7 +29,7 @@ git clone https://github.com/RaymondRJones/Transaction-Based-Cache.git
 
 ```
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
 ```
 3. Install Dependencies
 
@@ -44,23 +49,8 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Why Use a Transaction-Safe Cache?
+## API Endpoints & Example Queries
 
-Most caching systems (e.g., Redis, Memcached) provide fast but volatile storage. However, they lack transaction safety, meaning:
-
-    If a process crashes, partially applied changes remain.
-    No built-in rollback mechanism.
-    Concurrent modifications can lead to inconsistent state.
-
-This solution allows you to use a cache with ACID-like transactions, ensuring:
-
-    Atomicity: Either all changes are applied or none.
-    Consistency: No partial updates.
-    Isolation: Transactions are independent.
-    Durability: Data persists in SQLite.
-
-This makes it ideal for use cases where data integrity is critical.
-API Endpoints & Example Queries
 1. Start a Transaction
 
 `curl -X POST http://127.0.0.1:8000/api/cache/begin/`
